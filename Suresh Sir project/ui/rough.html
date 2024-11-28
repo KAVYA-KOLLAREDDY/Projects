@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+
+        .form-container {
+            margin: 50px auto;
+            max-width: 1000px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-submit {
+            background-color: #6c63ff;
+            color: white;
+        }
+
+        table {
+
+            background-color: white;
+            width: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2 class="text-center">Project</h2>
+        <form id="projectForm">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="projectName" class="form-label">Project Name:</label>
+                    <input type="text" id="projectName" name="projectName" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="client" class="form-label">Client:</label>
+                    <input type="text" id="client" name="client" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="typeOfProject" class="form-label">Type of Project:</label>
+                    <select id="typeOfProject" name="typeOfProject" class="form-select" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Development">Development</option>
+                        <option value="Support">Support</option>
+                        <option value="Research">Research</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="submissionMethod" class="form-label">Submission Method:</label>
+                    <select id="submissionMethod" name="submissionMethod" class="form-select" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Documentation">Documentation</option>
+                        <option value="Server">Server</option>
+                        <option value="Images">Images</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="plannedStartDate" class="form-label">Planned Start Date:</label>
+                    <input type="date" id="plannedStartDate" name="plannedStartDate" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="plannedEndDate" class="form-label">Planned End Date:</label>
+                    <input type="date" id="plannedEndDate" name="plannedEndDate" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="actualStartDate" class="form-label">Actual Start Date:</label>
+                    <input type="date" id="actualStartDate" name="actualStartDate" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="actualEndDate" class="form-label">Actual End Date:</label>
+                    <input type="date" id="actualEndDate" name="actualEndDate" class="form-control">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status:</label>
+                <input type="text" id="status" name="status" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-submit w-100">Submit</button>
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-3">Projects</h2>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+
+                <tr>
+                    <th>Project Name</th>
+                    <th>Client</th>
+                    <th>Type of Project</th>
+                    <th>Submission Method</th>
+                    <th>Status</th>
+                    <th>Planned Start Date</th>
+                    <th>Planned End Date</th>
+                    <th>Actual Start Date</th>
+                    <th>Actual End Date</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody id="projectTable"></tbody>
+        </table>
+    </div>
+
+
+    <script>
+        const SERVER_URL = "http://localhost:8080/projects"; // Adjust URL if needed
+
+        const GET_PROJECTS = SERVER_URL;
+        const POST_PROJECTS = SERVER_URL;
+
+        // Form and table selectors
+        const form = document.querySelector("#projectForm");
+        const tableBody = document.querySelector("#projectTable");
+
+        // Extracting form elements
+        const projectName = document.getElementById("projectName");
+        const client = document.getElementById("client");
+        const typeOfProject = document.getElementById("typeOfProject");
+        const submissionMethod = document.getElementById("submissionMethod");
+        const plannedStartDate = document.getElementById("plannedStartDate");
+        const plannedEndDate = document.getElementById("plannedEndDate");
+        const actualStartDate = document.getElementById("actualStartDate");
+        const actualEndDate = document.getElementById("actualEndDate");
+        const status = document.getElementById("status");
+
+
+        let editId = null; // Tracks the ID of the project being edited
+
+        // Prefetch and display all project rows
+        async function prefetchTableRows(data = null) {
+            tableBody.innerHTML = ""; // Clear table rows
+            if (!data) {
+                data = await fetchProjects(); // Fetch projects if no data provided
+            }
+
+            // Populate the table
+            for (const row of data) {
+                tableBody.innerHTML += `
+            <tr id="projectRow${row.id}">
+                <td>${row.projectName}</td>
+                <td>${row.client}</td>
+                <td>${row.typeOfProject}</td>
+                <td>${row.submissionMethod}</td>
+                <td>${row.status}</td>
+                <td>${row.plannedStartDate || "-"}</td>
+                <td>${row.plannedEndDate || "-"}</td>
+                <td>${row.actualStartDate || "-"}</td>
+                <td>${row.actualEndDate || "-"}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="editRow(${row.id})">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteRow(${row.id})">Delete</button>
+                </td>
+            </tr>
+            `;
+
+            }
+        }
+
+        // Fetch all projects
+        async function fetchProjects() {
+            const res = await fetch(GET_PROJECTS);
+            return await res.json();
+        }
+
+        // Create a new project
+        async function createProject(formData) {
+            const formDataJson = Object.fromEntries(formData.entries());
+            const res = await fetch(POST_PROJECTS, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formDataJson),
+            });
+            prefetchTableRows(await res.json());
+        }
+
+        // Update an existing project
+        async function updateProject(formData) {
+            const formDataJson = Object.fromEntries(formData.entries());
+
+            // Send a PUT request to update the project on the server
+            const res = await fetch(`${POST_PROJECTS}/${editId}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formDataJson),
+            });
+
+            if (res.ok) {
+                // If update is successful, update the table row directly
+                const updatedProject = await res.json();
+
+                // Find the row in the table by its ID and update the content
+                const row = document.querySelector(`#projectRow${editId}`);
+                row.innerHTML = `
+            <td>${updatedProject.projectName}</td>
+            <td>${updatedProject.client}</td>
+            <td>${updatedProject.typeOfProject}</td>
+            <td>${updatedProject.submissionMethod}</td>
+            <td>${updatedProject.status}</td>
+            <td>${updatedProject.plannedStartDate || "-"}</td>
+            <td>${updatedProject.plannedEndDate || "-"}</td>
+            <td>${updatedProject.actualStartDate || "-"}</td>
+            <td>${updatedProject.actualEndDate || "-"}</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="editRow(${updatedProject.id})">Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteRow(${updatedProject.id})">Delete</button>
+            </td>
+        `;
+
+                // Reset the form and clear the editId
+                form.reset();
+                editId = null;
+            } else {
+                console.error("Failed to update the project.");
+            }
+        }
+
+
+        // Delete a project
+        async function deleteRow(deleteId) {
+            await fetch(`${POST_PROJECTS}/${deleteId}`, {
+                method: "DELETE",
+            });
+            prefetchTableRows();
+        }
+
+        // Edit a project
+        async function editRow(editIdParam) {
+            const res = await fetch(`${GET_PROJECTS}/${editIdParam}`);
+            const project = await res.json();
+
+            // Populate form fields with the project details
+            projectName.value = project.projectName;
+            client.value = project.client;
+            typeOfProject.value = project.typeOfProject;
+            submissionMethod.value = project.submissionMethod;
+            plannedStartDate.value = project.plannedStartDate;
+            plannedEndDate.value = project.plannedEndDate;
+            actualStartDate.value = project.actualStartDate || ""; // Default to empty string
+            actualEndDate.value = project.actualEndDate || "";
+
+            status.value = project.status;
+
+            editId = editIdParam; // Set the current edit ID
+        }
+
+        // Handle form submission
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            if (form.checkValidity()) {
+                const formData = new FormData(form);
+                if (editId) {
+                    await updateProject(formData);
+                } else {
+                    await createProject(formData);
+                }
+                form.reset(); // Reset the form
+                editId = null; // Reset the edit ID
+            } else {
+                form.classList.add("was-validated");
+            }
+        });
+
+        // Initial load of table rows
+        prefetchTableRows();
+
+    </script>
+    <!-- <script>
+        const SERVER_URL = "http://localhost:8080/projects";
+
+        const GET_PROJECTS = SERVER_URL;
+        const POST_POJECTS = SERVER_URL;
+
+        const form = document.querySelector("#projectForm");
+        const tableBody = document.querySelector("#projectTable");
+
+        const projectName = documentgetElementById("projectName");
+        const client = documentgetElementById("client");
+        const typeOfProject = documentgetElementById("typeOfProject");
+        const submissionMethod = documentgetElementById("submissionMethod");
+        const plannedStartDate = documentgetElementById("plannedStartDate");
+        const plannedEndDate = documentgetElementById("plannedEndDate");
+        const actualStartDate = documentgetElementById("actualStartDate");
+        const actualEndDate = documentgetElementById("actualEndDate");
+        const status = documentgetElementById("status");
+
+        let editId = null;
+
+        async function prefetchTableRows(data = null) {
+            tableBody.innerHTML = "";
+            if (!data) {
+                data = await fetchProjects();
+            }
+
+            for (const row of data) {
+                tableBody.innerHTML +=
+                    <tr id="projectRow${row.id}">
+                        <td>${row.projectName}</td>
+                        <td>${row.client}</td>
+                        <td>${row.typeOfProject}</td>
+                        <td>${row.submissionMethod}</td>
+                        <td>${row.status}</td>
+                        <td>${row.plannedStartDate}</td>
+                        <td>${row.plannedEndDate}</td>
+                        <td>${row.actualStartDate || "-"}</td>
+                        <td>${row.actualEndDate || "-"}</td>
+                        <td>
+                        <button class="btn btn-info btn-sm" onclick="editRow(${row.id})">Edit</button>  
+                        <button class="btn btn-danger" onclick="editRow(${row.id})">Delete</button>  
+                        </td>
+                    </tr>
+                ;
+            }
+        }
+        async function createProject(formData){
+            const formDataJson=Object.fromEntries(formData.entries());
+        }
+    </script> -->
+</body>
+
+</html>
