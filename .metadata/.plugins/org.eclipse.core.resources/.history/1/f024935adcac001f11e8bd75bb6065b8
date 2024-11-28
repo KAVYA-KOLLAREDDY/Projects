@@ -1,0 +1,140 @@
+package com.project.managerEmployees.Entity;
+
+public class Project{
+	private Integer id;
+
+    private String projectName;
+    private String client;
+    private String typeOfProject;
+    private String submissionMethod;
+    private String status;
+    private String plannedStartDate;
+    private String actualStartDate;
+    private String plannedEndDate;
+    private String actualEndDate;
+    
+	public Project() {
+		
+	}
+	
+	public Project(String projectName, String client, String typeOfProject, String submissionMethod, String status,
+			String plannedStartDate, String actualStartDate, String plannedEndDate, String actualEndDate) {
+		super();
+		this.projectName = projectName;
+		this.client = client;
+		this.typeOfProject = typeOfProject;
+		this.submissionMethod = submissionMethod;
+		this.status = status;
+		this.plannedStartDate = plannedStartDate;
+		this.actualStartDate = actualStartDate;
+		this.plannedEndDate = plannedEndDate;
+		this.actualEndDate = actualEndDate;
+	}
+
+	public Project(Integer id, String projectName, String client, String typeOfProject, String submissionMethod,
+			String status, String plannedStartDate, String actualStartDate, String plannedEndDate,
+			String actualEndDate) {
+		super();
+		this.id = id;
+		this.projectName = projectName;
+		this.client = client;
+		this.typeOfProject = typeOfProject;
+		this.submissionMethod = submissionMethod;
+		this.status = status;
+		this.plannedStartDate = plannedStartDate;
+		this.actualStartDate = actualStartDate;
+		this.plannedEndDate = plannedEndDate;
+		this.actualEndDate = actualEndDate;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+	public String getClient() {
+		return client;
+	}
+
+	public void setClient(String client) {
+		this.client = client;
+	}
+
+	public String getTypeOfProject() {
+		return typeOfProject;
+	}
+
+	public void setTypeOfProject(String typeOfProject) {
+		this.typeOfProject = typeOfProject;
+	}
+
+	public String getSubmissionMethod() {
+		return submissionMethod;
+	}
+
+	public void setSubmissionMethod(String submissionMethod) {
+		this.submissionMethod = submissionMethod;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getPlannedStartDate() {
+		return plannedStartDate;
+	}
+
+	public void setPlannedStartDate(String plannedStartDate) {
+		this.plannedStartDate = plannedStartDate;
+	}
+
+	public String getActualStartDate() {
+		return actualStartDate;
+	}
+
+	public void setActualStartDate(String actualStartDate) {
+		this.actualStartDate = actualStartDate;
+	}
+
+	public String getPlannedEndDate() {
+		return plannedEndDate;
+	}
+
+	public void setPlannedEndDate(String plannedEndDate) {
+		this.plannedEndDate = plannedEndDate;
+	}
+
+	public String getActualEndDate() {
+		return actualEndDate;
+	}
+
+	public void setActualEndDate(String actualEndDate) {
+		this.actualEndDate = actualEndDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", projectName=" + projectName + ", client=" + client + ", typeOfProject="
+				+ typeOfProject + ", submissionMethod=" + submissionMethod + ", status=" + status
+				+ ", plannedStartDate=" + plannedStartDate + ", actualStartDate=" + actualStartDate
+				+ ", plannedEndDate=" + plannedEndDate + ", actualEndDate=" + actualEndDate + "]";
+	}
+    
+    
+	
+}

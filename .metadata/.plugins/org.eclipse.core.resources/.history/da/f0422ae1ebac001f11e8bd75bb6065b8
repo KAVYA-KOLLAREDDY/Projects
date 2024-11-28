@@ -1,0 +1,169 @@
+package com.project.managerEmployees.Entity;
+
+import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "projects")
+public class Project {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "project_name")
+    private String projectName;
+
+    @Column(name = "client")
+    private String client;
+
+    @Column(name = "type_of_project")
+    private String typeOfProject;
+
+    @Column(name = "submission_method")
+    private String submissionMethod;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "start_date_planned")
+    private Date startDatePlanned;
+
+    @Column(name = "start_date_actual")
+    private Date startDateActual;
+
+    @Column(name = "end_date_planned")
+    private Date endDatePlanned;
+
+    @Column(name = "end_date_actual")
+    private Date endDateActual;
+    
+	public Project() {
+		
+	}
+
+	public Project(Long id, String projectName, String client, String typeOfProject, String submissionMethod,
+			String status, Date startDatePlanned, Date startDateActual, Date endDatePlanned, Date endDateActual) {
+		super();
+		this.id = id;
+		this.projectName = projectName;
+		this.client = client;
+		this.typeOfProject = typeOfProject;
+		this.submissionMethod = submissionMethod;
+		this.status = status;
+		this.startDatePlanned = startDatePlanned;
+		this.startDateActual = startDateActual;
+		this.endDatePlanned = endDatePlanned;
+		this.endDateActual = endDateActual;
+	}
+
+	public Project(String projectName, String client, String typeOfProject, String submissionMethod, String status,
+			Date startDatePlanned, Date startDateActual, Date endDatePlanned, Date endDateActual) {
+		super();
+		this.projectName = projectName;
+		this.client = client;
+		this.typeOfProject = typeOfProject;
+		this.submissionMethod = submissionMethod;
+		this.status = status;
+		this.startDatePlanned = startDatePlanned;
+		this.startDateActual = startDateActual;
+		this.endDatePlanned = endDatePlanned;
+		this.endDateActual = endDateActual;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+	public String getClient() {
+		return client;
+	}
+
+	public void setClient(String client) {
+		this.client = client;
+	}
+
+	public String getTypeOfProject() {
+		return typeOfProject;
+	}
+
+	public void setTypeOfProject(String typeOfProject) {
+		this.typeOfProject = typeOfProject;
+	}
+
+	public String getSubmissionMethod() {
+		return submissionMethod;
+	}
+
+	public void setSubmissionMethod(String submissionMethod) {
+		this.submissionMethod = submissionMethod;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Date getStartDatePlanned() {
+		return startDatePlanned;
+	}
+
+	public void setStartDatePlanned(Date startDatePlanned) {
+		this.startDatePlanned = startDatePlanned;
+	}
+
+	public Date getStartDateActual() {
+		return startDateActual;
+	}
+
+	public void setStartDateActual(Date startDateActual) {
+		this.startDateActual = startDateActual;
+	}
+
+	public Date getEndDatePlanned() {
+		return endDatePlanned;
+	}
+
+	public void setEndDatePlanned(Date endDatePlanned) {
+		this.endDatePlanned = endDatePlanned;
+	}
+
+	public Date getEndDateActual() {
+		return endDateActual;
+	}
+
+	public void setEndDateActual(Date endDateActual) {
+		this.endDateActual = endDateActual;
+	}
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", projectName=" + projectName + ", client=" + client + ", typeOfProject="
+				+ typeOfProject + ", submissionMethod=" + submissionMethod + ", status=" + status
+				+ ", startDatePlanned=" + startDatePlanned + ", startDateActual=" + startDateActual
+				+ ", endDatePlanned=" + endDatePlanned + ", endDateActual=" + endDateActual + "]";
+	}
+	
+	
+	
+}

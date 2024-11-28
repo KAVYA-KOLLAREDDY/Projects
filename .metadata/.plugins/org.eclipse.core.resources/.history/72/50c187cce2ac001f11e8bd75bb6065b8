@@ -1,0 +1,54 @@
+package com.project.managerEmployees.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.project.managerEmployees.Entity.Project;
+import com.project.managerEmployees.Repository.ProjectRepository;
+
+@Service
+public class ProjectService{
+	
+	@Autowired
+	private  ProjectRepository projectRepository;
+	
+	public List<Project> getAllProjects(){
+		return projectRepository.findAll();
+	}
+	
+	public Project getProjectById(Integer id) {
+		return projectRepository.findById(id).orElse(null);
+	}
+	
+	public Project createProject(Project project) {
+		return projectRepository.save(project);
+	}
+	
+	public Project updateProject(Integer id,Project projectDetails) {
+		Project project = getProjectById(id);
+		
+		project.setProjectName(projectDetails.getProjectName());
+		project.setClient(projectDetails.getClient());
+		project.setTypeOfProject(projectDetails.getTypeOfProject());
+		project.setSubmissionMethod(projectDetails.getSubmissionMethod());
+		project.setStatus(projectDetails.getStatus());
+		project.setPlannedEndDate(projectDetails.getPlannedEndDate());
+		project.setPlannedStartDate(projectDetails.getPlannedStartDate());
+		project.setActualEndDate(projectDetails.getActualEndDate());
+		project.setActualStartDate(projectDetails.getActualStartDate());
+		
+		return projectRepository.save(project);
+	}
+	
+	public List<Project> deleteProjectById(Integer id) {
+		Project project= projectRepository.findById(id).orElse(null);
+        if (project != null) {
+            projectRepository.delete(project);
+        }
+        return projectRepository.findAll();
+	}
+	
+	
+}
