@@ -1,7 +1,5 @@
 package com.project.managerEmployees.Entity;
 
-
-
 import java.sql.Date;
 
 import jakarta.persistence.Column;
