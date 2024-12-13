@@ -1,0 +1,35 @@
+.border-separatorss {
+  border-left: 1px solid #979595;
+  margin: 0 10px;
+}
+
+.row1 {
+  background-color: #e7e2e2ae;
+  border-bottom: 1px solid #d4d1d17b;
+}
+
+.iconStyle {
+  margin-left: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+  background-color: #93C572;
+  color: white;
+  text-align: center;
+}
+
+.iconStyle2 {
+  background-color: rgb(220, 20, 60);
+}
+
+.iconStyles3 {
+  padding-left: 9px;
+  padding-right: 4px;
+  background-color: rgb(77, 115, 151);
+}
+
+.iconStyles4 {
+  padding-left: 9px;
+  padding-right: 3px;
+  background-color: #FEBE10;
+}

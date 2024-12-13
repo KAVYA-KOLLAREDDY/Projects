@@ -1,0 +1,77 @@
+.table2-card .dataTables_filter {
+  float: right;
+  margin-right: 15px;
+}
+
+.table2-card .dataTables_info {
+  float: left;
+
+  margin-left: 20px;
+}
+.table2-card {
+  /* width: 900px; */
+  margin: 50px;
+  height: auto;
+}
+
+.table2-card .search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.table2-card .search-container svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #170202;
+  z-index: 1;
+}
+
+.table2-card .search-input {
+  padding-left: 35px !important;
+  border: 1px solid #dee2e6;
+  border-radius: 0px;
+  height: 30px;
+  width: 200px;
+}
+
+.table2-card .custom-length select {
+  padding: 6px 30px 6px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0px;
+  margin: 0 8px;
+  height: 30px;
+  background-color: white;
+}
+
+.table2-card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.table2-card .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.table2-card .custom-length {
+  margin-left: 15px;
+}
+
+.table2-card .custom-search {
+  margin-right: 10px;
+}
+
+.table2-card .dataTables_info {
+  margin-left: 15px;
+}
+
+.table2-card .dataTables_filter {
+  display: none;
+}

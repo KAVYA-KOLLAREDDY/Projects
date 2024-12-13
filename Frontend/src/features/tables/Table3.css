@@ -1,0 +1,82 @@
+.tab3-card .dataTables_filter {
+  float: right;
+  margin-right: 15px;
+}
+
+.tab3-card .dataTables_info {
+  float: left;
+
+  margin-left: 20px;
+}
+.tab3-card {
+    margin: 50px;
+  height: auto;
+}
+
+.tab3-card .search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tab3-card .search-container svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #170202;
+  z-index: 1;
+}
+
+.tab3-card .search-input {
+  padding-left: 35px !important;
+  border: 1px solid #dee2e6;
+  border-radius: 0px;
+  height: 30px;
+  width: 200px;
+}
+
+.tab3-card .custom-length select {
+  padding: 6px 30px 6px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0px;
+  margin: 0 8px;
+  height: 30px;
+  background-color: white;
+}
+
+.tab3-card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.tab3-card .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.tab3-card .custom-length {
+  margin-left: 15px;
+}
+
+.tab3-card .custom-search {
+  margin-right: 40px;
+}
+
+.tab3-card .dataTables_info {
+  margin-left: 15px;
+}
+
+.tab3-card .dataTables_filter {
+  display: none;
+}
+.tab3-card .suni {
+  height: 30px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+}

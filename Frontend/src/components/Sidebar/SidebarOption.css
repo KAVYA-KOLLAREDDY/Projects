@@ -1,0 +1,3 @@
+.sidebar-option:not(.multi-opt):hover {
+  cursor: pointer;
+}

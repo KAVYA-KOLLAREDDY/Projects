@@ -1,0 +1,110 @@
+.custom-nav {
+  background-color: rgb(77, 115, 151) !important;
+  min-height: 60px;
+}
+
+.custom-nav * {
+  color: white;
+}
+
+.custom-nav .dropdown-item {
+  color: black;
+}
+
+.custom-nav ul button {
+  background-color: transparent;
+  max-height: 40vh;
+  text-align: center;
+  padding: 10px;
+  height: 60px;
+  margin: 0;
+  border: none;
+  border-right: 1px solid rgba(68, 68, 68, 0.805);
+  outline: none;
+}
+
+.custom-nav ul button:hover {
+  background-color: rgb(64, 93, 121);
+}
+
+.iconStyle {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #93C572;
+  color: white;
+  text-align: center
+}
+
+.iconStyle1 {
+  padding: 0px;
+  padding-bottom: 2px;
+  padding-right: 3px;
+  background-color: #93C572;
+}
+
+.iconStyle2 {
+  padding: 2px;
+  background-color: rgb(220, 20, 60);
+}
+
+.iconStyle3 {
+  padding-right: 6px !important;
+  padding-top:4px ;
+  background-color: rgb(77, 115, 151) !important;
+}
+
+.iconStyle4 {
+  padding-right:6px !important;
+  padding-top: 5px;
+  background-color: #FEBE10 !important;
+}
+
+.custom-nav ul .project-dropdown div li div .dropdown-item {
+  height: 50px;
+}
+
+.custom-nav ul .project-dropdown .dropdown-item {
+  border-right: 1px solid rgb(79, 78, 78);
+}
+
+.custom-nav ul .project-dropdown .dropdown-item:hover {
+  background-color: rgb(76, 109, 140);
+}
+
+.dropdown {
+  margin-top: 5px !important;
+}
+
+
+.custom-nav ul .dropdown-menu {
+  border-radius: 0px;
+}
+
+
+.custom-nav ul .dropdown-item:hover {
+  background-color: rgb(201, 198, 198);
+}
+
+.dropdown-header {
+  background-color: rgb(64, 93, 121);
+}
+
+.dropdown-header .dropdown-item:hover {
+  background-color: transparent !important;
+}
+
+.custom-nav li .dropdown-footer {
+  background-color: rgb(239, 238, 238);
+  color: rgb(234, 233, 233);
+}
+
+.project-dropdown {
+  background-color: rgb(64, 93, 121) !important;
+
+}
+
+.project-dropdown .dropdown-item:hover {
+  background-color: rgb(76, 108, 138);
+
+}

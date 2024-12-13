@@ -1,0 +1,127 @@
+.default {
+  background-color: var(--btn--default-color);
+  color: black;
+  border: 1px solid gainsboro;
+  padding: 6px;
+}
+
+.default:disabled {
+  background-color: var(--bnt-default-disabled-color);
+  color: black;
+}
+
+.primary {
+  background-color: var(--btn-primary-color);
+  border: 1px solid var(--btn-primary-color);
+  padding: 6px;
+  color: white;
+}
+
+
+.default.mini,
+.primary.mini,
+.info.mini,
+.success.mini,
+.danger.mini,
+.warning.mini,
+.inverse.mini {
+  padding: 0 5px;
+}
+
+
+.default.small,
+.primary.small,
+.info.small,
+.success.small,
+.danger.small,
+.warning.small,
+.inverse.small {
+  padding: 5px 10px;
+}
+
+.default.large,
+.primary.large,
+.info.large,
+.success.large,
+.danger.large,
+.warning.large,
+.inverse.large {
+  padding: 10px;
+}
+
+.default.full,
+.primary.full,
+.info.full,
+.success.full,
+.danger.full,
+.warning.full,
+.inverse.full {
+  display: block;
+  width: 100%;
+}
+
+.primary:disabled {
+  background-color: var(--btn-primary-disabled-color);
+  border: 1px solid var(--btn-primary-disabled-color);
+}
+
+.info {
+  background-color: var(--btn-info-color);
+  border: 1px solid var(--btn-info-color);
+  padding: 6px;
+  color: white;
+}
+
+.info:disabled {
+  background-color: var(--btn-info-disabled-color);
+  border: 1px solid var(--btn-info-disabled-color);
+}
+
+.success {
+  background-color: var(--btn-success-color);
+  border: 1px solid var(--btn-success-color);
+  padding: 6px;
+  color: white;
+}
+
+.success:disabled {
+  background-color: var(--btn-success-disabled-color);
+  border: 1px solid var(--btn-success-disabled-color);
+}
+
+.warning {
+  background-color: var(--btn-warning-color);
+  border: 1px solid var(--btn-warning-color);
+  padding: 6px;
+  color: white;
+}
+
+.warning:disabled {
+  background-color: var(--btn-warning-disabled-color);
+  border: 1px solid var(--btn-warning-disabled-color);
+}
+
+.danger {
+  background-color: var(--btn-danger-color);
+  border: 1px solid var(--btn-danger-color);
+  padding: 6px;
+  color: white;
+}
+
+.danger:disabled {
+  background-color: var(--btn-danger-disabled-color);
+  border: 1px solid var(--btn-danger-disabled-color);
+}
+
+.inverse {
+  background-color: var(--btn-inverse-color);
+  border: 1px solid var(--btn-inverse-color);
+  padding: 6px;
+  color: white;
+}
+
+.inverse:disabled {
+  background-color: var(--btn-inverse-disabled-color);
+  border: 1px solid var(--btn-inverse-disabled-color);
+}
+

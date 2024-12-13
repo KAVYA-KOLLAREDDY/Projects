@@ -1,0 +1,77 @@
+.dataTables_filter {
+  float: right;
+  margin-right: 15px;
+}
+
+.dataTables_info {
+  float: left;
+
+  margin-left: 20px;
+}
+.tab-card {
+  /* width: 900px; */
+  margin: 50px;
+  height: auto;
+}
+
+.tab-card .search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tab-card .search-container svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #170202;
+  z-index: 1;
+}
+
+.tab-card .search-input {
+  padding-left: 35px !important;
+  border: 1px solid #dee2e6;
+  border-radius: 0px;
+  height: 30px;
+  width: 200px;
+}
+
+.tab-card .custom-length select {
+  padding: 6px 30px 6px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0px;
+  margin: 0 8px;
+  height: 30px;
+  background-color: white;
+}
+
+.tab-card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.tab-card .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.tab-card .custom-length {
+  margin-left: 15px;
+}
+
+.tab-card .custom-search {
+  margin-right: 10px;
+}
+
+.tab-card .dataTables_info {
+  margin-left: 15px;
+}
+
+.tab-card .dataTables_filter {
+  display: none;
+}

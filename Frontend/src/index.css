@@ -1,0 +1,17 @@
+:root {
+  --btn-default-color: #f3f3f3;
+  --btn-primary-color: #3765c5;
+  --btn-info-color: #3098b3;
+  --btn-success-color: #55a052;
+  --btn-warning-color: #f99308;
+  --btn-danger-color: #be362f;
+  --btn-inverse-color: #555555;
+
+  --btn-default-disabled-color: #f6f6f6;
+  --btn-primary-disabled-color: #7f9ddb;
+  --btn-info-disabled-color: #78bbce;
+  --btn-success-disabled-color: #8ec38d;
+  --btn-warning-disabled-color: #fab95e;
+  --btn-danger-disabled-color: #d47c78;
+  --btn-inverse-disabled-color: #8e8e8e;
+}
